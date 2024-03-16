@@ -1,24 +1,24 @@
 import os
 from getkey import getkey, keys
-import numpy as np
+from array import *
 import random
 
 Alternativ = ["Lägg till passagerare", "Skriv ut array", "Skriv ut sammanlagd ålder på passagerare", "Avsluta"]
 
-Passagerare = np.array([])
+Passagerare = array('i',[])
+#AntalPassagerare = 0
 
 def LäggTillPassagerare():
     if len(Passagerare) < 25:
         RandomÅlder = random.randint(5,99)
-        np.append(Passagerare, RandomÅlder)
-        print(f"En passagerare som är {RandomÅlder} år gammal hoppade på bussen. Totalt {len(Passagerare)} på bussen.")
+        Passagerare.append(RandomÅlder)
+        print(f"En passagerare som är {RandomÅlder} år gammal hoppade på bussen. Totalt {len(Passagerare)} passagerare på bussen.")
     else:
-        print("Tyvärr grabbar, inga slots lediga. Bussen är full.")
-    
-
+        print("Tyvärr grabbar, inga slots lediga. Bussen är full.")   
+        
 def SkrivUtArray():
     if len(Passagerare) > 0:
-        print(Passagerare)
+        print(Passagerare[1,-1])
     else:
         print("Bussen är tom!")
 
@@ -49,7 +49,7 @@ def meny():
                 else:
                     os.system('clear')
             case keys.DOWN:
-                if Menyval < 2:
+                if Menyval < 3:
                     Menyval += 1
                     os.system('clear')
                 else:
@@ -64,22 +64,31 @@ def meny():
                         SkrivUtArray()
                     case 2:
                         os.system('clear')
+                        SammanlagdÅlder()
+                    case 3:
+                        os.system('clear')
                         Avsluta()
 
 
         if Menyval == 0:
-            print("Första valet <--")
-            print("Andra valet")
-            print("Avsluta")
+            print(f"{Alternativ[0]} <--")
+            print(f"{Alternativ[1]}")
+            print(f"{Alternativ[2]}")
+            print(f"{Alternativ[3]}")
         elif Menyval == 1:
-            #os.system('clear')
-            print("Första valet")
-            print("Andra valet <--")
-            print("Avsluta")
+            print(f"{Alternativ[0]}")
+            print(f"{Alternativ[1]} <--")
+            print(f"{Alternativ[2]}")
+            print(f"{Alternativ[3]}")
         elif Menyval == 2:
-            #os.system('clear')
-            print("Första valet")
-            print("Andra valet")
-            print("Avsluta <--")
+            print(f"{Alternativ[0]}")
+            print(f"{Alternativ[1]}")
+            print(f"{Alternativ[2]} <--")
+            print(f"{Alternativ[3]}")
+        elif Menyval == 3:
+            print(f"{Alternativ[0]}")
+            print(f"{Alternativ[1]}")
+            print(f"{Alternativ[2]}")
+            print(f"{Alternativ[3]} <--")
           
 meny()       
