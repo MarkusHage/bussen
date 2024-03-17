@@ -1,32 +1,40 @@
 import os
 from getkey import getkey, keys
-from array import *
+import numpy as np
 import random
 
 Alternativ = ["Lägg till passagerare", "Skriv ut array", "Skriv ut sammanlagd ålder på passagerare", "Avsluta"]
 
 PassagerarLista = []
-Passagerare = array('i',[])
+Passagerare = np.array([])
+
+print("hej")
 #AntalPassagerare = 0
 
+#Bussklass
+
+
 def LäggTillPassagerare():
+    global Passagerare
     if len(Passagerare) < 25:
         RandomÅlder = random.randint(5,99)
-        Passagerare.append(RandomÅlder)
+        Passagerare = np.append(Passagerare, RandomÅlder)
         print(f"En passagerare som är {RandomÅlder} år gammal hoppade på bussen. Totalt {len(Passagerare)} passagerare på bussen.")
     else:
         print("Tyvärr grabbar, inga slots lediga. Bussen är full.")  
         
 def SkrivUtArray():
+    global Passagerare
     if len(Passagerare) > 0:
         for Person in Passagerare:
             PassagerarLista.append(Person)
-        print(PassagerarLista)
+        print(Passagerare)
         PassagerarLista.clear()
     else:
         print("Bussen är tom!")
 
 def SammanlagdÅlder():
+    global Passagerare
     if len(Passagerare) > 0:
         print(sum(Passagerare))
         if sum(Passagerare) == 420:
