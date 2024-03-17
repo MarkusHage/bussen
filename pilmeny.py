@@ -5,6 +5,7 @@ import random
 
 Alternativ = ["Lägg till passagerare", "Skriv ut array", "Skriv ut sammanlagd ålder på passagerare", "Avsluta"]
 
+PassagerarLista = []
 Passagerare = array('i',[])
 #AntalPassagerare = 0
 
@@ -14,17 +15,22 @@ def LäggTillPassagerare():
         Passagerare.append(RandomÅlder)
         print(f"En passagerare som är {RandomÅlder} år gammal hoppade på bussen. Totalt {len(Passagerare)} passagerare på bussen.")
     else:
-        print("Tyvärr grabbar, inga slots lediga. Bussen är full.")   
+        print("Tyvärr grabbar, inga slots lediga. Bussen är full.")  
         
 def SkrivUtArray():
     if len(Passagerare) > 0:
-        print(Passagerare[1,-1])
+        for Person in Passagerare:
+            PassagerarLista.append(Person)
+        print(PassagerarLista)
+        PassagerarLista.clear()
     else:
         print("Bussen är tom!")
 
 def SammanlagdÅlder():
     if len(Passagerare) > 0:
         print(sum(Passagerare))
+        if sum(Passagerare) == 420:
+            print("Ayy it's the weed number!")
     else:
         print("Bussen är tom!")  
 
@@ -68,24 +74,34 @@ def meny():
                     case 3:
                         os.system('clear')
                         Avsluta()
+            case _:
+                os.system('clear')
 
 
         if Menyval == 0:
+            print()
+            print()
             print(f"{Alternativ[0]} <--")
             print(f"{Alternativ[1]}")
             print(f"{Alternativ[2]}")
             print(f"{Alternativ[3]}")
         elif Menyval == 1:
+            print()
+            print()
             print(f"{Alternativ[0]}")
             print(f"{Alternativ[1]} <--")
             print(f"{Alternativ[2]}")
             print(f"{Alternativ[3]}")
         elif Menyval == 2:
+            print()
+            print()
             print(f"{Alternativ[0]}")
             print(f"{Alternativ[1]}")
             print(f"{Alternativ[2]} <--")
             print(f"{Alternativ[3]}")
         elif Menyval == 3:
+            print()
+            print()
             print(f"{Alternativ[0]}")
             print(f"{Alternativ[1]}")
             print(f"{Alternativ[2]}")
